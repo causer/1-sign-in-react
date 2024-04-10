@@ -68,3 +68,7 @@ export const loginRequest = {
 //     scopes: ["openid", "profile"],
 //     loginHint: "example@domain.net"
 // };
+
+export const graphConfig = {
+    graphMeEndpoint: "https://graph.microsoft.com/v1.0/me",
+};
