@@ -1,6 +1,6 @@
 import React from "react";
 import '../styles/App.css';
-import { Table, Button } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 
 /**
  * Renders information about the user obtained from MS Graph 
