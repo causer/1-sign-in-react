@@ -32,7 +32,7 @@ export const IdTokenData = (props) => {
                 account: accounts[0],
             })
             .then((response) => {
-                callMsGraph(response.accessToken).then((response) => setGraphData(response));
+                callMsGraph(response.accessToken).then((response) => setGraphData(response)).catch((error) => console.log(error));
             });
     }
 
@@ -46,7 +46,7 @@ export const IdTokenData = (props) => {
                         <ProfileData graphData={graphData} />
                     ) : (
                         <Button variant="secondary" onClick={RequestProfileData}>
-                            Request Profile Information
+                            Request Profile Information from Graph API
                         </Button>
                     )}
                 </div>
