@@ -17,7 +17,7 @@ const MainContent = () => {
      * that tells you what msal is currently doing. For more, visit:
      * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-react/docs/hooks.md
      */
-    const { instance } = useMsal();
+    const { instance, inProgress } = useMsal();
     const activeAccount = instance.getActiveAccount();
 
     const handleRedirect = () => {
@@ -50,6 +50,8 @@ const MainContent = () => {
     // }).catch((error) => console.log(error));
 
     return (
+        <>
+        {inProgress !== "login" &&
         <div className="App">
             <AuthenticatedTemplate>
                 {activeAccount ? (
@@ -64,6 +66,9 @@ const MainContent = () => {
                 </Button>
             </UnauthenticatedTemplate>
         </div>
+            }
+            {inProgress === "login" && <h5>Login in progress...</h5>}
+            </>
     );
 };
 
