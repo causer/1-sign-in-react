@@ -3,7 +3,6 @@ import { Container, Button } from 'react-bootstrap';
 import { PageLayout } from './components/PageLayout';
 import { IdTokenData } from './components/DataDisplay';
 import { loginRequest } from './authConfig';
-
 import './styles/App.css';
 
 /**
@@ -29,6 +28,27 @@ const MainContent = () => {
             })
             .catch((error) => console.log(error));
     };
+
+    // useEffect(() => {
+    //     if (!activeAccount) {
+    //         instance.handleRedirectPromise().catch((error) => console.log(error));
+    //     } else {
+    //         instance.acquireTokenSilent({
+    //             ...loginRequest,
+    //             account: activeAccount,
+    //         });
+    //     }
+        
+    // }, [activeAccount, instance]);
+
+  
+
+    // instance
+    // .acquireTokenSilent({
+    //     ...loginRequest,
+    //     account: accounts[0],
+    // }).catch((error) => console.log(error));
+
     return (
         <div className="App">
             <AuthenticatedTemplate>
@@ -40,7 +60,7 @@ const MainContent = () => {
             </AuthenticatedTemplate>
             <UnauthenticatedTemplate>
                 <Button className="signInButton" onClick={handleRedirect} variant="primary">
-                    Sign up
+                    Sign in
                 </Button>
             </UnauthenticatedTemplate>
         </div>
