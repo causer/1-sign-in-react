@@ -36,7 +36,7 @@ msalInstance.addEventCallback((event) => {
         msalInstance.setActiveAccount(account);
     } else if (event.eventType === EventType.LOGIN_FAILURE) {
         console.log(event);
-        //loginRedirect();
+        loginRedirect();
     }
 });
 
@@ -47,6 +47,8 @@ msalInstance
       const account = msalInstance.getActiveAccount();
       if (!account) {
         loginRedirect();
+      } else {
+        window.location.href = '/';
       }
     }
   })
